@@ -1,0 +1,104 @@
+%%%%%%%%%%\dir %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{\de{xxx}\en{The Plan for Today}}
+
+\begin{itemize}
+\item Only 1 hour
+\item Only 1 pattern
+\vspace{1em}
+\item Most important one for me right now
+\item In-depth session on Fri/Sat if interested 
+\end{itemize}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{\de{Was ist das Problem?}\en{What is the problem?}}
+
+\begin{lstlisting}
+public double calcDiscount(double p1, double p2){
+   // ...
+}
+\end{lstlisting}
+
+\onslide+<2->
+
+\vspace{2em}
+
+$\longrightarrow$ Bad parameter names
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{\de{Und was ist hiermit?}\en{What about this one, then?}}
+
+\begin{lstlisting}
+public double calcDiscount(double amount, 
+                           double discount){
+   // ...
+}
+\end{lstlisting}
+
+\onslide+<2->
+
+\vspace{2em}
+
+$\longrightarrow$ Everything is clear, right?
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{\de{xxx}\en{How is this thing invoked, anyways?}}
+
+\begin{lstlisting}
+public double calcDiscount(double amount, 
+                           double discount){
+   // ...
+}
+\end{lstlisting}
+
+\onslide+<2->
+
+\begin{itemize}
+\item Is the amount a monetary value? What about rounding?
+\item Should we really use \texttt{double} for monetary values?
+\item Is the discount a monetary amount that gets subtracted?
+\item Or is the discount a percentage that is used to divide the amount?
+\item Is a percentage of 5\% passed as 5.0 or as 0.05?
+\item Is the return value just the discount or the discounted amount?
+\item Is it easy to mess up the invocation by accidentally swapping parameters?
+\item $\ldots$
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{How to improve this?}
+
+\onslide+<2->
+
+{
+\huge
+Ask the type system for help!
+}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Better Types}
+
+\begin{lstlisting}
+public double calcDiscount(double amount, 
+                           double discount){
+   // ...
+}
+\end{lstlisting}
+
+
+\end{frame}
+
+

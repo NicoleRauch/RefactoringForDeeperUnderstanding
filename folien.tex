@@ -1,0 +1,80 @@
+\documentclass[utf8]{beamer}
+% collapse multi-slides for printing:
+%\documentclass[utf8,handout]{beamer}
+
+\usepackage[official]{eurosym}
+
+\newcommand{\PathToConfig}{../Y_Allgemeines/} % Wichtig: Mit Slash abschließen!
+
+\input legalstuff
+\input \PathToConfig presentations_setup
+
+% 
+\showNotes % für die Projektion mit SlidePilot
+
+
+\usetikzlibrary{backgrounds}
+
+% Enables German or English Language texts (where applicable)
+%\detrue 
+\entrue
+
+% Kurzer oder langer Vortrag:
+\usepackage{comment}
+\excludecomment{langfassung}
+
+\AtBeginPart{\frame{\partpage}}
+
+\author{~}
+\title{Refactoring Code Smells}
+\subtitle{~}
+\institute{~}
+
+\usepackage{eso-pic}
+
+\newcommand{\SPACE}{0em}
+\newcommand{\WIDTH}{0em}
+\newcommand{\greyedout}{black!50}
+
+\lstnewenvironment{highlight}[1]{\lstset{basicstyle=\footnotesize\ttfamily\alt<#1>{}{\color{\greyedout}}}}{}
+
+\begin{document}
+{
+	\usebackgroundtemplate{} % required, otherwise the tikzpicture does not get displayed
+	\begin{frame}[t,plain]
+		\titlepage
+		\begin{tikzpicture}%
+		% put: x (from left) , y (from bottom)
+		\put(220,-30){\includegraphics[width=4cm]{\PathToConfig logos/German.png}}%
+		\end{tikzpicture}%
+	\end{frame}
+}
+
+\renewcommand{\insertpart}{\inserttitle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{contents}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input \PathToConfig Danke.tex
+
+
+\end{document}
+
+
+%%%%%%%%%%\dir %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{\de{}\en{}}
+
+\end{frame}
+
+\begin{lstlisting}
+
+\end{lstlisting}
+
+
+\begin{itemize}
+\item \de{}\en{}
+\vspace{1em}
+\item \de{}\en{}
+\end{itemize}
+
