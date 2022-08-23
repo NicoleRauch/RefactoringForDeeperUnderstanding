@@ -1,6 +1,6 @@
 // based on an idea from https://codescracker.com
 
-package v2;
+package v1;
 
 import java.util.Scanner;
 
@@ -16,6 +16,11 @@ public class DiscountCalculator {
 
         System.out.print("Enter the total amount of your shopping: ");
         double totalAmount = scan.nextFloat();
+
+        System.out.println(calculateTotalPrice(totalAmount));
+    }
+
+    public static String calculateTotalPrice(double totalAmount) {
         double percentage;
 
         if (totalAmount <= 80) {
@@ -33,13 +38,11 @@ public class DiscountCalculator {
         double discount = calcDiscount(totalAmount, percentage);
 
         if (totalAmount <= 80)
-            System.out.println("\nYou need to pay " + totalAmount);
+            return "You need to pay " + totalAmount;
         else {
-            System.out.println("\nCongrats, you've got " + percentage + "% discount on the total purchase!");
-            System.out.println("You save " + (totalAmount - discount));
-            System.out.println("Now you only need to pay " + discount);
+            return "Congrats, you've got " + percentage + "% discount on the total purchase!"
+                + "\nYou save " + (totalAmount - discount)
+                + "\nNow you only need to pay " + discount;
         }
-        System.out.println("");
     }
-
 }
