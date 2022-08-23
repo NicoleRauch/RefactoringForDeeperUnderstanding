@@ -1,11 +1,11 @@
-package src_2;
+package v3;
 
 public class DiscountedAmount {
 
-    private double discountedAmount;
+    private final double discountedAmount;
 
     public DiscountedAmount(double amount) {
-        if(amount < 0) {
+        if (amount < 0) {
             throw new IllegalArgumentException("Negative values are not allowed for discounted amounts");
         }
         this.discountedAmount = amount;

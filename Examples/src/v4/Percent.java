@@ -1,8 +1,8 @@
-package src_2;
+package v4;
 
 public class Percent {
 
-    private double percent;
+    private final double percent;
 
     public Percent(double percent) {
         if(percent < 0){
@@ -12,7 +12,6 @@ public class Percent {
         this.percent = percent;
     }
 
-    public double value() {
-        return percent;
-    }
+    public double asDecimal() { return percent / 100; }
+    public double asNominal() { return percent; }
 }

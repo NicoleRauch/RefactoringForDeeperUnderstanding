@@ -10,7 +10,7 @@
 \input \PathToConfig presentations_setup
 
 % 
-\showNotes % für die Projektion mit SlidePilot
+% \showNotes % für die Projektion mit SlidePilot
 
 
 \usetikzlibrary{backgrounds}
@@ -37,6 +37,8 @@
 \newcommand{\greyedout}{black!50}
 
 \lstnewenvironment{highlight}[1]{\lstset{basicstyle=\footnotesize\ttfamily\alt<#1>{}{\color{\greyedout}}}}{}
+
+\usepackage{tabularx}
 
 \begin{document}
 {
@@ -76,5 +78,11 @@
 \item \de{}\en{}
 \vspace{1em}
 \item \de{}\en{}
+\end{itemize}
+
+\begin{itemize}
+\item 
+\vspace{1em}
+\item 
 \end{itemize}
 

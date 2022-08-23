@@ -1,10 +1,10 @@
-package src_2;
+package v3;
 
 public class MonetaryAmount {
-    private double amount;
+    private final double amount;
 
     public MonetaryAmount(double amount) {
-        if(amount < 0) {
+        if (amount < 0) {
             throw new IllegalArgumentException("Negative values are not allowed for monetary amounts");
         }
         this.amount = amount;
@@ -12,5 +12,9 @@ public class MonetaryAmount {
 
     public double value() {
         return amount;
+    }
+
+    public DiscountedAmount applyDiscount(Percent discount) {
+        return new DiscountedAmount(amount - amount * discount.asDecimal());
     }
 }
