@@ -16,31 +16,31 @@ public class DiscountCalculator {
         System.out.print("Enter the total amount of your shopping: ");
         double totalAmount = scan.nextFloat();
 
-        System.out.println(calculateTotalPrice(totalAmount));
+        System.out.println(calculateTotalPrice(new MonetaryAmount(totalAmount)));
     }
 
-    public static String calculateTotalPrice(double totalAmount) {
+    public static String calculateTotalPrice(MonetaryAmount monetaryAmount) {
         double percentage;
 
-        if (totalAmount <= 80) {
+        if (monetaryAmount.amount() <= 80) {
             percentage = 0;
-        } else if (totalAmount > 80 && totalAmount <= 150) {
+        } else if (monetaryAmount.amount() > 80 && monetaryAmount.amount() <= 150) {
             percentage = 10;
-        } else if (totalAmount > 150 && totalAmount <= 250) {
+        } else if (monetaryAmount.amount() > 150 && monetaryAmount.amount() <= 250) {
             percentage = 15;
-        } else if (totalAmount > 250 && totalAmount <= 500) {
+        } else if (monetaryAmount.amount() > 250 && monetaryAmount.amount() <= 500) {
             percentage = 20;
         } else {
             percentage = 30;
         }
 
-        double discount = calcDiscount(new MonetaryAmount(totalAmount), new Percent(percentage));
+        double discount = calcDiscount(monetaryAmount, new Percent(percentage));
 
-        if (totalAmount <= 80)
-            return "You need to pay " + totalAmount;
+        if (monetaryAmount.amount() <= 80)
+            return "You need to pay " + monetaryAmount.amount();
         else {
             return "Congrats, you've got " + percentage + "% discount on the total purchase!"
-                + "\nYou save " + (totalAmount - discount)
+                + "\nYou save " + (monetaryAmount.amount() - discount)
                 + "\nNow you only need to pay " + discount;
         }
     }
