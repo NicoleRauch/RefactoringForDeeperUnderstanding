@@ -5,9 +5,9 @@ package v1;
 import java.util.Scanner;
 
 public class DiscountCalculator {
-    public static double calcDiscount(double amount, Percent percent) {
+    public static double calcDiscount(MonetaryAmount monetaryAmount, Percent percent) {
 
-        return amount - amount * percent.getPercentage() / 100;
+        return monetaryAmount.amount() - monetaryAmount.amount() * percent.getPercentage() / 100;
     }
 
     public static void main(String[] args) {
@@ -34,7 +34,7 @@ public class DiscountCalculator {
             percentage = 30;
         }
 
-        double discount = calcDiscount(totalAmount, new Percent(percentage));
+        double discount = calcDiscount(new MonetaryAmount(totalAmount), new Percent(percentage));
 
         if (totalAmount <= 80)
             return "You need to pay " + totalAmount;

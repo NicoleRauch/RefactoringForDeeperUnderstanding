@@ -7,12 +7,12 @@ public class DiscountCalculatorTest {
 
     @Test
     public void calcDiscount_0Percent() {
-        Assert.assertEquals(100.0, DiscountCalculator.calcDiscount(100.0, new Percent(0.0)), 0.0001);
+        Assert.assertEquals(100.0, DiscountCalculator.calcDiscount(new MonetaryAmount(100.0), new Percent(0.0)), 0.0001);
     }
 
     @Test
     public void calcDiscount_2Percent() {
-        Assert.assertEquals(98.0, DiscountCalculator.calcDiscount(100.0, new Percent(2.0)), 0.0001);
+        Assert.assertEquals(98.0, DiscountCalculator.calcDiscount(new MonetaryAmount(100.0), new Percent(2.0)), 0.0001);
     }
 
     @Test
