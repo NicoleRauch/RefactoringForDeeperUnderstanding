@@ -7,7 +7,11 @@ public class Percent {
         this.percentage = percentage;
     }
 
-    public double getPercentage() {
+    double toDecimal() {
+        return percentage / 100;
+    }
+
+    double toNominal() {
         return percentage;
     }
 }

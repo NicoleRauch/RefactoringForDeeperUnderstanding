@@ -5,10 +5,6 @@ package v1;
 import java.util.Scanner;
 
 public class DiscountCalculator {
-    public static DiscountedAmount calcDiscount(MonetaryAmount monetaryAmount, Percent percent) {
-
-        return new DiscountedAmount(monetaryAmount.amount() - monetaryAmount.amount() * percent.getPercentage() / 100);
-    }
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -34,14 +30,15 @@ public class DiscountCalculator {
             percentage = new Percent(30);
         }
 
-        DiscountedAmount discount = calcDiscount(monetaryAmount, percentage);
+        DiscountedAmount discount = monetaryAmount.calcDiscount(percentage);
 
         if (monetaryAmount.amount() <= 80)
             return "You need to pay " + monetaryAmount.amount();
         else {
-            return "Congrats, you've got " + percentage.getPercentage() + "% discount on the total purchase!"
+            return "Congrats, you've got " + percentage.toNominal() + "% discount on the total purchase!"
                 + "\nYou save " + (monetaryAmount.amount() - discount.amount())
                 + "\nNow you only need to pay " + discount.amount();
         }
     }
+
 }
