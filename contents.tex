@@ -1,3 +1,5 @@
+\part{Refactoring for Deeper Understanding}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]{\de{xxx}\en{The Plan for Today}}
 
@@ -94,15 +96,53 @@ Ask the type system for help!
 \onslide+<3->
 
 \vspace{4em}
-Object Calisthenics: Programming exercises for better object-oriented code
+\textbf{Object Calisthenics:} \\Programming exercises for better object-oriented code
 
-\vspace{1em}
+\vspace{2em}
 Rule 3: Wrap All Primitives and Strings
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Bad Types}
+
+\begin{lstlisting}
+public double calcDiscount( double amount, 
+                           double discount ){
+   // ...
+}
+\end{lstlisting}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]{Better Types}
+
+\begin{lstlisting}
+public DiscountedAmount calcDiscount(
+			MonetaryAmount amount,
+			Percent discount ) {
+   // ...
+}
+\end{lstlisting}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{\de{}\en{Why ``DiscountedAmount'' and not ``AmountToBeSubtracted''?}}
+
+\begin{itemize}
+\item It's visible whether the amount has already been discounted
+\item It's robust because we cannot accidentally discount twice
+\item It describes stages in our process which leads to clear handovers
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Let's Check Our Questions}
 
 \begin{lstlisting}
 public DiscountedAmount calcDiscount(
@@ -433,18 +473,6 @@ In-depth session on Fri/Sat if interested
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{frame}[fragile]{\de{}\en{Why ``DiscountedAmount'' and not ``AmountToBeSubtracted''?}}
-%
-%\begin{itemize}
-%\item It's visible whether the amount has already been discounted
-%\item It's robust because we cannot accidentally discount twice
-%\item It describes stages in our process which leads to clear handovers
-%\end{itemize}
-%
-%
-%\end{frame}
-%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\begin{frame}[fragile]{\de{xxx}\en{Domain-Driven Design In A Nutshell}}
 %
